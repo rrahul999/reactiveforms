@@ -1,0 +1,62 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+  <form [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
+    <h2><u>Employee Rgistration Form</u></h2>
+    <div class="form-group">
+      <label for="name">NAME</label><br>
+       <input type ="text"  class="form-control" formControlName="Name"  placeholder="enter name">
+       <span *ngIf = "employeeForm.controls['Name'].hasError('required') && employeeForm.controls['Name'].dirty" >Name is required</span>
+       <span *ngIf = "employeeForm.controls['Name'].hasError('minlength')" >Minimum 3 words required</span>
+    </div>
+
+      <div class="form-group">
+       <label for="email">Email-ID</label><br>
+       <input type ="text" class="form-control" formControlName="Email" placeholder="@gmail.com">
+       <span *ngIf = "employeeForm.controls['Email'].hasError('required')  && employeeForm.controls['Email'].dirty" >Email is required</span>
+       <span *ngIf = "employeeForm.controls['Email'].hasError('email')" >Wrong pattern</span>
+      </div>
+
+       <div class="form-group">
+       <label for="phno">PH.No</label><br>
+       <input  type ="text" class="form-control" formControlName="PhNo" formControlName="country_code">
+       <span *ngIf = "employeeForm.controls['PhNo'].hasError('required') && employeeForm.controls['PhNo'].dirty"  >pnone number required</span>
+       <span *ngIf = "employeeForm.controls['PhNo'].hasError('maxLength')" >max length is 10 numbers</span>
+       <span *ngIf = "employeeForm.controls['PhNo'].hasError('pattern')" >Please enter a valid number</span>
+      </div>
+
+       <div class="form-group">
+       <label for="Id">ID</label><br>
+       <input type ="text" class="form-control" formControlName="ID">
+       <span *ngIf = "employeeForm.controls['ID'].hasError('required') && employeeForm.controls['ID'].dirty" >ID is required</span>
+      </div><br><br>
+    <div formGroupName="ADD">
+           <label>ADDRESS</label><br>
+           
+           <label>Line1</label><input type ="text" class="form-control" formControlName="LINE1">
+           <span *ngIf = "employeeForm.controls['ADD'].controls['LINE1'].hasError('required') && employeeForm.controls['LINE1'].dirty"  >Line1 is required</span><br>
+          
+          
+           <label>Line2</label><input type ="text" class="form-control" formControlName="LINE2">
+           <span *ngIf = "employeeForm.controls['ADD'].controls['LINE2'].hasError('required') && employeeForm.controls['LINE2'].dirty"  >Line2 is required</span><br>
+          
+          
+           <label>District</label><input type ="text" class="form-control" formControlName="DIST">
+           <span *ngIf = "employeeForm.controls['ADD'].controls['DIST'].hasError('required') && employeeForm.controls['DIST'].dirty"  >District is required</span><br>
+         
+           <label>State</label><input type ="text" class="form-control" formControlName="STATE">
+           <span *ngIf = "employeeForm.controls['ADD'].controls['STATE'].hasError('required') && employeeForm.controls['STATE'].dirty" >State is required</span><br>
+          
+
+           <label>Pin Code</label><input type ="text" class="form-control" formControlName="PIN">
+           <span *ngIf = "employeeForm.controls['ADD'].controls['PIN'].hasError('required') && employeeForm.controls['PIN'].dirty" >Pin is required</span><br>
+           <span *ngIf = "employeeForm.controls.controls['ADD']['PIN'].hasError('maxLength')" >Maximum 6 numbers required</span>
+          
+    </div>
+    <button type="submit">Submit</button>
+  
+  </form>
+
+
+ 
+
